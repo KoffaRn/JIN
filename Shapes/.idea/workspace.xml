@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44b7ca7a-69fc-4e3f-955e-ade52b7bace4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Fruits/Fruits.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Fruits/src/Apple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Fruits/src/Banana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Fruits/src/Fruit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Fruits/src/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shapes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
-    </list>
+    <list default="true" id="44b7ca7a-69fc-4e3f-955e-ade52b7bace4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
