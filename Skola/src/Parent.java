@@ -22,8 +22,7 @@ public class Parent extends Person {
     public String toString() {
         String str = "Parent: ";
         str += "Name: " + this.getName() + ", " +
-                "Age " + this.getAge() + ", " +
-                "Children: " + this.getChildren().toString() + ".";
+                "Age " + this.getAge() + ".";
         return str;
     }
 }

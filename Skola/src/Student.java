@@ -5,9 +5,11 @@ import java.util.HashMap;
 public class Student extends Person {
     private int classroom;
     private HashMap<String,Character> gradeList;
+    private ArrayList<Parent> parents;
 
     public Student(String name, int age, int classroom) {
         this.gradeList = new HashMap<String, Character>();
+        this.parents = new ArrayList<Parent>();
         this.setName(name);
         this.setAge(age);
         this.setClassroom(classroom);
@@ -22,8 +24,14 @@ public class Student extends Person {
     void gradePerformance(String course, char grade) {
         gradeList.put(course, grade);
     }
+    void addParent(Parent parent) {
+        this.parents.add(parent);
+    }
     HashMap<String, Character> getGradeList() {
         return gradeList;
+    }
+    ArrayList<Parent> getParents() {
+        return parents;
     }
     @Override
     public String toString() {
@@ -31,7 +39,8 @@ public class Student extends Person {
         str += "Name: " + this.getName() + ", " +
                 "Age: " + this.getAge() + ", " +
                 "Classroom: " + this.getClassroom() + ", " +
-                "Grade list: " + this.getGradeList().toString() + ".";
+               "Grade list: " + getGradeList() + ".";
+               // "Parents: " + getParents() + ".";
         return str;
     }
 }
