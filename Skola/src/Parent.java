@@ -8,6 +8,7 @@ public class Parent extends Person {
         this.setAge(age);
         this.setName(name);
         this.children.add(child);
+        child.addParent(this);
     }
     void addChildren(Student student) {
         children.add(student);
