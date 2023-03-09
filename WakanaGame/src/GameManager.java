@@ -23,20 +23,27 @@ public class GameManager {
     }
     void newRound() {
         System.out.println(player);
-        int warriors = 0;
-        int rangers = 0;
-        for(Enemy e : enemyArrayList) {
-            if (e instanceof Warrior) warriors += 1;
-            else if (e instanceof Ranger) rangers += 1;
-        }
-
-        System.out.println("Warriors left: " + warriors + "\nRangers left: " + rangers);
+        System.out.println("Warriors left: " + warriorsLeft() + "\nRangers left: " + rangersLeft());
         System.out.println("What do you want to do?");
-        playerTurn(warriors);
+        playerTurn(warriorsLeft());
         enemyTurn();
         if(playerDied()) gameOver();
         playerWin();
         newRound();
+    }
+    int warriorsLeft() {
+        int enemies = 0;
+        for(Enemy e : enemyArrayList) {
+            if(e instanceof Warrior) enemies += 1;
+        }
+        return enemies;
+    }
+    int rangersLeft() {
+        int enemies = 0;
+        for(Enemy e : enemyArrayList) {
+            if(e instanceof Ranger) enemies += 1;
+        }
+        return enemies;
     }
 
     private void playerWin() {
@@ -67,7 +74,6 @@ public class GameManager {
         }
     }
     void playerAttack() {
-        player.isBlocking = false;
         System.out.println("When attacking a Warrior you lose 1 energy. \nWhen attacking a Ranger you lose 2 energy.");
         for(int i = 0; i < enemyArrayList.size(); i++) {
             System.out.print((i + 1) + ". " + enemyArrayList.get(i));
@@ -75,14 +81,11 @@ public class GameManager {
             else System.out.println();
         }
         int choice = Helper.takeInput();
-        enemyArrayList.get(choice - 1).decreaseHealth(player.damage);
-        if(enemyArrayList.get(choice - 1) instanceof Warrior) player.energy -= 1;
-        else if (enemyArrayList.get(choice - 1) instanceof Ranger) player.energy -= 2;
+        player.attack(enemyArrayList.get(choice - 1));
         if(enemyArrayList.get(choice -1).isDead()) enemyArrayList.remove(choice - 1);
     }
     void playerBlock() {
-        player.isBlocking = true;
-        player.energy += 1;
+        player.startBlocking();
     }
     boolean playerDied() {
         return player.health < 1;
