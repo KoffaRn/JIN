@@ -14,6 +14,10 @@ public class Player {
         this.isBlocking = false;
     }
 
+    /**
+     * Checks to see if attack is legal and if so attacks
+     * @param enemy to attack.
+     */
     void attack(Enemy enemy) {
         isBlocking = false;
         enemy.decreaseHealth(damage);
@@ -24,27 +28,47 @@ public class Player {
         if(enemy instanceof Warrior) decreaseEnergy(1);
         else if (enemy instanceof Ranger) decreaseEnergy(2);
     }
+
+    /**
+     * Starts blocking and increases energy
+     */
     void startBlocking() {
         isBlocking = true;
         increaseEnergy(1);
     }
+
+    /**
+     * Player takes attack from enemy
+     * @param enemy who does the attack
+     */
     void incomingAttack(Enemy enemy) {
         int hitChance = (int)(Math.random() * 100);
         if(!isBlocking || hitChance > blockChance) decreaseHealth(enemy.damage);
         if(enemy instanceof Warrior && riposteChance > hitChance) enemy.decreaseHealth(damage);
     }
+
+    /**
+     *
+     * @param amount to decrease player health
+     */
     void decreaseHealth(int amount) {
         health -= amount;
     }
+
+    /**
+     *
+     * @param amount to decrease player energy
+     */
     void decreaseEnergy(int amount) {
         energy -= amount;
     }
+
+    /**
+     *
+     * @param amount to increase player energy
+     */
     void increaseEnergy(int amount) {
         energy += amount;
-    }
-    void die(GameManager gm) {
-        System.out.println("You have died!");
-        gm.playerAttack();
     }
     @Override
     public String toString() {

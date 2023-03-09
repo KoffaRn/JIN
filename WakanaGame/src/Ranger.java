@@ -5,11 +5,8 @@ public class Ranger extends Enemy {
         damage = (int) (Math.random() * 3) + 1;
         super.setDamage(damage);
     }
-    void attack() {
-
-    }
-    void checkIfDead() {
-
+    boolean checkIfDead() {
+        return health < 1;
     }
     void die() {
 
